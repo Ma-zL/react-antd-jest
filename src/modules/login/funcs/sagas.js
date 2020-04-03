@@ -5,15 +5,11 @@ import * as apis from "../../../apis/login";
 function* callLogin({ loginPost }) {
 	try {
 		const result = yield call(apis.login, loginPost);
-		if (result && result.status) {
-			if (result.status.code === "200") {
-				yield put(constants.loginSuccess());
-				// yield put(message.success("Login success"));
-			} else {
-				// yield put(message.warn(result.status.message));
-			}
+		if (result.code === "200") {
+			yield put(constants.loginSuccess());
+			// yield put(message.success("Login success"));
 		} else {
-			// yield put(message.error("Login fail"));
+			// yield put(message.warn(result.status.message));
 		}
 	} catch (e) {
 		// yield put(message.error("Login fail"));
