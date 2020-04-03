@@ -1,7 +1,15 @@
 {
   "en": {
     "login": {
-      "loginTitle": "Login"
+      "loginTitle": "Login",
+      "username": "Username",
+      "password": "Password",
+      "usernameMsg": "Please input your Username!",
+      "passwordMsg": "Please input your Password!",
+      "rememberMe": "Remember me",
+      "forgotPassword": "Forgot password",
+      "loginButton": "Log in",
+      "registerNow": "Register now"
     }
   }
 }

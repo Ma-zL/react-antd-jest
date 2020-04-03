@@ -1,16 +1,14 @@
 import { LANG_CONFIG_PATH, LANGUAGE_KEY } from "../constants/const";
 import Fetch from "./fetch";
 
-const langFunc = async (lang, header) => {
-	const langs = {};
-	for (const i of LANG_CONFIG_PATH) {
-		const lan = await Fetch.get(i.replace("{0}", lang), header);
-		for (const key in lan) {
-			if (!langs.hasOwnProperty(key)) {
-				langs[key] = {};
-			}
-			langs[key] = Object.assign(langs[key], lan[key]);
+let langFunc = async (lang, header) => {
+	let langs = {};
+	let lan = await Fetch.get(LANG_CONFIG_PATH.replace("{0}", lang), header);
+	for (let key in lan) {
+		if (!langs.hasOwnProperty(key)) {
+			langs[key] = {};
 		}
+		langs[key] = Object.assign(langs[key], lan[key]);
 	}
 	return langs;
 };
@@ -24,7 +22,7 @@ const getLang = async lang => {
 		});
 	}
 
-	const header = {
+	let header = {
 		headers: {
 			"Cache-control": "no-store"
 		}

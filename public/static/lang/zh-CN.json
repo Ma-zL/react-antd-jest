@@ -1,7 +1,15 @@
 {
   "en": {
     "login": {
-      "loginTitle": "登录"
+      "loginTitle": "登录",
+      "username": "用户名",
+      "password": "密码",
+      "usernameMsg": "请输入用户名!",
+      "passwordMsg": "请输入密码!",
+      "rememberMe": "记住我",
+      "forgotPassword": "忘记密码",
+      "loginButton": "登录",
+      "registerNow": "注册"
     }
   }
 }

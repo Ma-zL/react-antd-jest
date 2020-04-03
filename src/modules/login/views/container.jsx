@@ -13,8 +13,7 @@ export class Login extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			backgroundUrl:
-				props.backgroundUrl || "./static/media/background.jpg"
+			backgroundUrl: "./static/media/background.jpg"
 		};
 	}
 
@@ -31,6 +30,8 @@ export class Login extends React.Component {
 		formData.append("name", values.username);
 		formData.append("password", values.password);
 		this.props.loginRequest(formData);
+		let abc = 111;
+		console.log(asasas);
 	};
 
 	render() {
@@ -56,7 +57,7 @@ export class Login extends React.Component {
 						rules={[
 							{
 								required: true,
-								message: "Please input your Username!"
+								message: I18n.t("login.usernameMsg")
 							}
 						]}
 					>
@@ -64,7 +65,7 @@ export class Login extends React.Component {
 							prefix={
 								<UserOutlined className="site-form-item-icon" />
 							}
-							placeholder={I18n.t("login.userName")}
+							placeholder={I18n.t("login.username")}
 						/>
 					</Form.Item>
 					<Form.Item
@@ -72,7 +73,7 @@ export class Login extends React.Component {
 						rules={[
 							{
 								required: true,
-								message: "Please input your Password!"
+								message: I18n.t("login.passwordMsg")
 							}
 						]}
 					>
@@ -81,7 +82,7 @@ export class Login extends React.Component {
 								<LockOutlined className="site-form-item-icon" />
 							}
 							type="password"
-							placeholder="Password"
+							placeholder={I18n.t("login.password")}
 						/>
 					</Form.Item>
 					<Form.Item>
@@ -90,11 +91,11 @@ export class Login extends React.Component {
 							valuePropName="checked"
 							noStyle
 						>
-							<Checkbox>Remember me</Checkbox>
+							<Checkbox>{I18n.t("login.rememberMe")}</Checkbox>
 						</Form.Item>
 
 						<a className="login-form-forgot" href="">
-							Forgot password
+							{I18n.t("login.forgotPassword")}
 						</a>
 					</Form.Item>
 
@@ -105,9 +106,9 @@ export class Login extends React.Component {
 							className="login-form-button"
 							onClick={this.callLogin}
 						>
-							Log in
+							{I18n.t("login.loginButton")}
 						</Button>
-						Or <a href="">register now!</a>
+						Or <a href="">{I18n.t("login.registerNow")}</a>
 					</Form.Item>
 				</Form>
 			</div>

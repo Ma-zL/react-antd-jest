@@ -5,22 +5,25 @@ import "./index.css";
 import * as serviceWorker from "./serviceWorker";
 import { getSettings } from "./commons/utils/settingsHelper";
 import getUrl from "./commons/utils/urlHelper";
-// import getLang from "./commons/utils/langHelper";
+import getLang from "./commons/utils/langHelper";
 import Routers from "./router";
 import store, { injectAsyncReducer, sagaMiddleware } from "./commons/store";
 import { reducer, reducerName, sagas } from "./modules/auth";
+import { I18n } from "react-i18nify";
 
 sagaMiddleware.run(sagas);
 injectAsyncReducer(store, reducerName, reducer);
 
 async function init() {
 	const settings = await getSettings(),
-		urls = await getUrl();
-	// lang = await getLang(settings.defaultLanguage);
-	return Promise.resolve({ urls, settings });
+		urls = await getUrl(),
+		lang = await getLang(settings.defaultLanguage);
+	return Promise.resolve({ urls, settings, lang });
 }
 
-init().then(() => {
+init().then(d => {
+	I18n.setTranslations(d.lang);
+	I18n.setLocale(d.settings.languages[d.settings.defaultLanguage]);
 	ReactDOM.render(
 		<Provider store={store}>
 			<Routers />

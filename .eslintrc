@@ -33,7 +33,7 @@
     "semi": ["error", "always"],
     "eqeqeq": 0,
     "one-var": 0,
-    "no-undef": 1,
+    "no-undef": 2,
     "no-extra-boolean-cast": 1,
     "no-extra-parens": 1,
     "no-empty": 1,
