@@ -18,7 +18,10 @@ export class Login extends React.Component {
 	}
 
 	componentDidUpdate(prevProps) {
-		if (!_.isEqual(prevProps.loginSuccess, this.props.loginSuccess)) {
+		if (
+			!_.isEqual(prevProps.loginSuccess, this.props.loginSuccess) &&
+			prevProps.loginSuccess
+		) {
 			// const history = this.props.history;
 			// history.push("/mainDashboard");
 			window.location.hash = "/mainDashboard";
@@ -30,8 +33,6 @@ export class Login extends React.Component {
 		formData.append("name", values.username);
 		formData.append("password", values.password);
 		this.props.loginRequest(formData);
-		let abc = 111;
-		console.log(asasas);
 	};
 
 	render() {
@@ -141,4 +142,7 @@ const mapDispatchToProps = dispatch => {
 	};
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(withRouter(Login));
+export default connect(
+	mapStateToProps,
+	mapDispatchToProps
+)(withRouter(Login));

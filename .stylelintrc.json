@@ -1,0 +1,13 @@
+{
+  "extends": ["stylelint-config-standard"],
+  "ignoreFiles": ["node_modules/**/*.less", "**/*.md", "**/*.ts", "**/*.js", "**/*.jsx"],
+  "rules": {
+    "indentation": 4,
+    "at-rule-name-space-after": null,
+    "rule-empty-line-before": null,
+    "no-missing-end-of-source-newline": true,
+    "at-rule-no-unknown": [true, {"ignoreAtRules" :[
+      "mixin", "extend", "content"
+    ]}]
+  }
+}

@@ -32,10 +32,13 @@
     "test": "react-app-rewired test",
     "eject": "react-scripts eject",
     "lint": "eslint src --ext .js,.jsx && stylelint \"./src/**/*.less\"",
-    "precommit": "lint-staged && npm run test"
+    "precommit": "lint-staged && npm test --coverage"
   },
   "lint-staged": {
-    "*.{js,jsx,json}": ["prettier --write", "git add"]
+    "src/**/*.{js,jsx,json,less}": [
+      "prettier --write",
+      "git add"
+    ]
   },
   "eslintConfig": {
     "extends": "react-app"
